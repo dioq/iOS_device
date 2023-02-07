@@ -39,7 +39,8 @@
 + (NSString *)getDeviceName {
     // 需要#import "sys/utsname.h"
     struct utsname systemInfo;
-    uname(&systemInfo);
+    int ret = uname(&systemInfo);
+    printf("uname ret = %d\n", ret);
     NSString *sysname = [NSString stringWithCString:systemInfo.sysname encoding:NSUTF8StringEncoding];
     NSLog(@"sysname:%@",sysname);
     NSString *nodename = [NSString stringWithCString:systemInfo. nodename encoding:NSUTF8StringEncoding];

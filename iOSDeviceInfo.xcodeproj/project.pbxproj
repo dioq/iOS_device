@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A43AB842895391300890EEF /* iOSDeviceInfoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A43AB832895391300890EEF /* iOSDeviceInfoTests.m */; };
 		3AEE36FF2881910E00762CCD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEE36FE2881910E00762CCD /* AppDelegate.m */; };
 		3AEE370A2881910F00762CCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AEE37092881910F00762CCD /* Assets.xcassets */; };
 		3AEE370D2881910F00762CCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AEE370B2881910F00762CCD /* LaunchScreen.storyboard */; };
@@ -18,7 +19,19 @@
 		3AEE37222881A08000762CCD /* DeviceUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEE37212881A08000762CCD /* DeviceUtil.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3A43AB852895391300890EEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3AEE36F22881910E00762CCD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AEE36F92881910E00762CCD;
+			remoteInfo = iOSDeviceInfo;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		3A43AB812895391300890EEF /* iOSDeviceInfoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSDeviceInfoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A43AB832895391300890EEF /* iOSDeviceInfoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSDeviceInfoTests.m; sourceTree = "<group>"; };
 		3AEE36FA2881910E00762CCD /* iOSDeviceInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDeviceInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AEE36FD2881910E00762CCD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3AEE36FE2881910E00762CCD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -37,6 +50,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3A43AB7E2895391300890EEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3AEE36F72881910E00762CCD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -47,10 +67,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A43AB822895391300890EEF /* iOSDeviceInfoTests */ = {
+			isa = PBXGroup;
+			children = (
+				3A43AB832895391300890EEF /* iOSDeviceInfoTests.m */,
+			);
+			path = iOSDeviceInfoTests;
+			sourceTree = "<group>";
+		};
 		3AEE36F12881910E00762CCD = {
 			isa = PBXGroup;
 			children = (
 				3AEE36FC2881910E00762CCD /* iOSDeviceInfo */,
+				3A43AB822895391300890EEF /* iOSDeviceInfoTests */,
 				3AEE36FB2881910E00762CCD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				3AEE36FA2881910E00762CCD /* iOSDeviceInfo.app */,
+				3A43AB812895391300890EEF /* iOSDeviceInfoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,6 +117,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3A43AB802895391300890EEF /* iOSDeviceInfoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A43AB872895391300890EEF /* Build configuration list for PBXNativeTarget "iOSDeviceInfoTests" */;
+			buildPhases = (
+				3A43AB7D2895391300890EEF /* Sources */,
+				3A43AB7E2895391300890EEF /* Frameworks */,
+				3A43AB7F2895391300890EEF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A43AB862895391300890EEF /* PBXTargetDependency */,
+			);
+			name = iOSDeviceInfoTests;
+			productName = iOSDeviceInfoTests;
+			productReference = 3A43AB812895391300890EEF /* iOSDeviceInfoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		3AEE36F92881910E00762CCD /* iOSDeviceInfo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3AEE37132881910F00762CCD /* Build configuration list for PBXNativeTarget "iOSDeviceInfo" */;
@@ -111,8 +159,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					3A43AB802895391300890EEF = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 3AEE36F92881910E00762CCD;
+					};
 					3AEE36F92881910E00762CCD = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -132,11 +185,19 @@
 			projectRoot = "";
 			targets = (
 				3AEE36F92881910E00762CCD /* iOSDeviceInfo */,
+				3A43AB802895391300890EEF /* iOSDeviceInfoTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3A43AB7F2895391300890EEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3AEE36F82881910E00762CCD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -151,6 +212,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3A43AB7D2895391300890EEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A43AB842895391300890EEF /* iOSDeviceInfoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3AEE36F62881910E00762CCD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -165,6 +234,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		3A43AB862895391300890EEF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3AEE36F92881910E00762CCD /* iOSDeviceInfo */;
+			targetProxy = 3A43AB852895391300890EEF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		3AEE370B2881910F00762CCD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -177,6 +254,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3A43AB882895391300890EEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 38D3676P2T;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.jobs8.iOSDeviceInfoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSDeviceInfo.app/iOSDeviceInfo";
+			};
+			name = Debug;
+		};
+		3A43AB892895391300890EEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 38D3676P2T;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.jobs8.iOSDeviceInfoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSDeviceInfo.app/iOSDeviceInfo";
+			};
+			name = Release;
+		};
 		3AEE37112881910F00762CCD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -299,7 +412,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iOSDeviceInfo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Device Info";
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used to deliver personalized ads to you.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "We will use your iDFA!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -329,7 +442,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iOSDeviceInfo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Device Info";
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Your data will be used to deliver personalized ads to you.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "We will use your iDFA!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -350,6 +463,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3A43AB872895391300890EEF /* Build configuration list for PBXNativeTarget "iOSDeviceInfoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A43AB882895391300890EEF /* Debug */,
+				3A43AB892895391300890EEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3AEE36F52881910E00762CCD /* Build configuration list for PBXProject "iOSDeviceInfo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
