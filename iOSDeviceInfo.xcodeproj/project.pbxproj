@@ -30,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A2F7C78299E6D2300679555 /* iOSDeviceInfo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOSDeviceInfo.entitlements; sourceTree = "<group>"; };
 		3A43AB812895391300890EEF /* iOSDeviceInfoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSDeviceInfoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A43AB832895391300890EEF /* iOSDeviceInfoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSDeviceInfoTests.m; sourceTree = "<group>"; };
 		3AEE36FA2881910E00762CCD /* iOSDeviceInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDeviceInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +97,7 @@
 		3AEE36FC2881910E00762CCD /* iOSDeviceInfo */ = {
 			isa = PBXGroup;
 			children = (
+				3A2F7C78299E6D2300679555 /* iOSDeviceInfo.entitlements */,
 				3AEE36FD2881910E00762CCD /* AppDelegate.h */,
 				3AEE36FE2881910E00762CCD /* AppDelegate.m */,
 				3AEE37202881A08000762CCD /* DeviceUtil.h */,
@@ -406,9 +408,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = iOSDeviceInfo/iOSDeviceInfo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 38D3676P2T;
+				DEVELOPMENT_TEAM = 5YBWG2X244;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iOSDeviceInfo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Device Info";
@@ -416,8 +419,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -436,9 +438,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = iOSDeviceInfo/iOSDeviceInfo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 38D3676P2T;
+				DEVELOPMENT_TEAM = 5YBWG2X244;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iOSDeviceInfo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Device Info";
@@ -446,8 +449,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

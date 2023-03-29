@@ -20,12 +20,8 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     MainViewController *main = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:[NSBundle mainBundle]];
-    
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:main];
-    
     self.window.rootViewController = nav;
-    
-//    [NSBundle executablePath];
     
     [self.window makeKeyAndVisible];
     return YES;
