@@ -103,7 +103,7 @@ OBJC_EXTERN CFStringRef MGCopyAnswer(CFStringRef key) WEAK_IMPORT_ATTRIBUTE;
         NSLog(@"AirplaneMode is off");
     }
     NSString *airplaneMode = (__bridge_transfer NSString *)AirplaneMode;
-    [self.tipDict setValue:airplaneMode forKey:@"ProductVersion"];
+    [self.tipDict setValue:airplaneMode forKey:@"AirplaneMode"];
     //    setreuid(501, 0);// 获取root权限
     
     [self showInfo];
