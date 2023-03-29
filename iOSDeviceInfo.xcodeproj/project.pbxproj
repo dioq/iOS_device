@@ -8,14 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		3A43AB842895391300890EEF /* iOSDeviceInfoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A43AB832895391300890EEF /* iOSDeviceInfoTests.m */; };
+		3A70008929D4251F008C5099 /* MyNavgationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A70008529D4251F008C5099 /* MyNavgationController.m */; };
+		3A70008A29D4251F008C5099 /* MyTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A70008729D4251F008C5099 /* MyTabBarController.m */; };
+		3A70009129D425B6008C5099 /* HardwareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A70008F29D425B6008C5099 /* HardwareViewController.m */; };
+		3A70009229D425B6008C5099 /* HardwareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A70009029D425B6008C5099 /* HardwareViewController.xib */; };
+		3A70009B29D42603008C5099 /* ExtensionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A70009929D42603008C5099 /* ExtensionViewController.m */; };
+		3A70009C29D42603008C5099 /* ExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A70009A29D42603008C5099 /* ExtensionViewController.xib */; };
+		3A7000A129D426D0008C5099 /* SoftwareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A70009F29D426D0008C5099 /* SoftwareViewController.m */; };
+		3A7000A229D426D0008C5099 /* SoftwareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A7000A029D426D0008C5099 /* SoftwareViewController.xib */; };
+		3ADD94C329D441F400AFA781 /* NetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD94C129D441F400AFA781 /* NetworkViewController.m */; };
+		3ADD94C429D441F400AFA781 /* NetworkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ADD94C229D441F400AFA781 /* NetworkViewController.xib */; };
+		3ADD94C829D445CC00AFA781 /* libMobileGestalt.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADD94C729D445CC00AFA781 /* libMobileGestalt.tbd */; };
 		3AEE36FF2881910E00762CCD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEE36FE2881910E00762CCD /* AppDelegate.m */; };
 		3AEE370A2881910F00762CCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AEE37092881910F00762CCD /* Assets.xcassets */; };
 		3AEE370D2881910F00762CCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AEE370B2881910F00762CCD /* LaunchScreen.storyboard */; };
 		3AEE37102881910F00762CCD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEE370F2881910F00762CCD /* main.m */; };
-		3AEE37192881965B00762CCD /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEE37172881965B00762CCD /* MainViewController.m */; };
-		3AEE371A2881965B00762CCD /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AEE37182881965B00762CCD /* MainViewController.xib */; };
-		3AEE371E288198C600762CCD /* ShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEE371C288198C600762CCD /* ShowViewController.m */; };
-		3AEE371F288198C600762CCD /* ShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AEE371D288198C600762CCD /* ShowViewController.xib */; };
 		3AEE37222881A08000762CCD /* DeviceUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEE37212881A08000762CCD /* DeviceUtil.m */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +40,23 @@
 		3A2F7C78299E6D2300679555 /* iOSDeviceInfo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOSDeviceInfo.entitlements; sourceTree = "<group>"; };
 		3A43AB812895391300890EEF /* iOSDeviceInfoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSDeviceInfoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A43AB832895391300890EEF /* iOSDeviceInfoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSDeviceInfoTests.m; sourceTree = "<group>"; };
+		3A70008529D4251F008C5099 /* MyNavgationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNavgationController.m; sourceTree = "<group>"; };
+		3A70008629D4251F008C5099 /* MyTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTabBarController.h; sourceTree = "<group>"; };
+		3A70008729D4251F008C5099 /* MyTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTabBarController.m; sourceTree = "<group>"; };
+		3A70008829D4251F008C5099 /* MyNavgationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNavgationController.h; sourceTree = "<group>"; };
+		3A70008E29D425B6008C5099 /* HardwareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HardwareViewController.h; sourceTree = "<group>"; };
+		3A70008F29D425B6008C5099 /* HardwareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HardwareViewController.m; sourceTree = "<group>"; };
+		3A70009029D425B6008C5099 /* HardwareViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HardwareViewController.xib; sourceTree = "<group>"; };
+		3A70009829D42603008C5099 /* ExtensionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionViewController.h; sourceTree = "<group>"; };
+		3A70009929D42603008C5099 /* ExtensionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionViewController.m; sourceTree = "<group>"; };
+		3A70009A29D42603008C5099 /* ExtensionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExtensionViewController.xib; sourceTree = "<group>"; };
+		3A70009E29D426D0008C5099 /* SoftwareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoftwareViewController.h; sourceTree = "<group>"; };
+		3A70009F29D426D0008C5099 /* SoftwareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoftwareViewController.m; sourceTree = "<group>"; };
+		3A7000A029D426D0008C5099 /* SoftwareViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SoftwareViewController.xib; sourceTree = "<group>"; };
+		3ADD94C029D441F400AFA781 /* NetworkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkViewController.h; sourceTree = "<group>"; };
+		3ADD94C129D441F400AFA781 /* NetworkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkViewController.m; sourceTree = "<group>"; };
+		3ADD94C229D441F400AFA781 /* NetworkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetworkViewController.xib; sourceTree = "<group>"; };
+		3ADD94C729D445CC00AFA781 /* libMobileGestalt.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libMobileGestalt.tbd; path = usr/lib/libMobileGestalt.tbd; sourceTree = SDKROOT; };
 		3AEE36FA2881910E00762CCD /* iOSDeviceInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDeviceInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AEE36FD2881910E00762CCD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3AEE36FE2881910E00762CCD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -40,12 +64,6 @@
 		3AEE370C2881910F00762CCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3AEE370E2881910F00762CCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AEE370F2881910F00762CCD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3AEE37162881965B00762CCD /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		3AEE37172881965B00762CCD /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		3AEE37182881965B00762CCD /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
-		3AEE371B288198C600762CCD /* ShowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowViewController.h; sourceTree = "<group>"; };
-		3AEE371C288198C600762CCD /* ShowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowViewController.m; sourceTree = "<group>"; };
-		3AEE371D288198C600762CCD /* ShowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowViewController.xib; sourceTree = "<group>"; };
 		3AEE37202881A08000762CCD /* DeviceUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceUtil.h; sourceTree = "<group>"; };
 		3AEE37212881A08000762CCD /* DeviceUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceUtil.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ADD94C829D445CC00AFA781 /* libMobileGestalt.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,12 +95,83 @@
 			path = iOSDeviceInfoTests;
 			sourceTree = "<group>";
 		};
+		3A70008429D424CF008C5099 /* navigation */ = {
+			isa = PBXGroup;
+			children = (
+				3AEE36FD2881910E00762CCD /* AppDelegate.h */,
+				3AEE36FE2881910E00762CCD /* AppDelegate.m */,
+				3A70008829D4251F008C5099 /* MyNavgationController.h */,
+				3A70008529D4251F008C5099 /* MyNavgationController.m */,
+				3A70008629D4251F008C5099 /* MyTabBarController.h */,
+				3A70008729D4251F008C5099 /* MyTabBarController.m */,
+			);
+			path = navigation;
+			sourceTree = "<group>";
+		};
+		3A70008B29D42549008C5099 /* hardware */ = {
+			isa = PBXGroup;
+			children = (
+				3A70008E29D425B6008C5099 /* HardwareViewController.h */,
+				3A70008F29D425B6008C5099 /* HardwareViewController.m */,
+				3A70009029D425B6008C5099 /* HardwareViewController.xib */,
+			);
+			path = hardware;
+			sourceTree = "<group>";
+		};
+		3A70008D29D42583008C5099 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				3A70009829D42603008C5099 /* ExtensionViewController.h */,
+				3A70009929D42603008C5099 /* ExtensionViewController.m */,
+				3A70009A29D42603008C5099 /* ExtensionViewController.xib */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		3A70009D29D426C6008C5099 /* software */ = {
+			isa = PBXGroup;
+			children = (
+				3A70009E29D426D0008C5099 /* SoftwareViewController.h */,
+				3A70009F29D426D0008C5099 /* SoftwareViewController.m */,
+				3A7000A029D426D0008C5099 /* SoftwareViewController.xib */,
+			);
+			path = software;
+			sourceTree = "<group>";
+		};
+		3ADD94BF29D441E500AFA781 /* network */ = {
+			isa = PBXGroup;
+			children = (
+				3ADD94C029D441F400AFA781 /* NetworkViewController.h */,
+				3ADD94C129D441F400AFA781 /* NetworkViewController.m */,
+				3ADD94C229D441F400AFA781 /* NetworkViewController.xib */,
+			);
+			path = network;
+			sourceTree = "<group>";
+		};
+		3ADD94C529D4457800AFA781 /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				3AEE37202881A08000762CCD /* DeviceUtil.h */,
+				3AEE37212881A08000762CCD /* DeviceUtil.m */,
+			);
+			path = tool;
+			sourceTree = "<group>";
+		};
+		3ADD94C629D445CB00AFA781 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3ADD94C729D445CC00AFA781 /* libMobileGestalt.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3AEE36F12881910E00762CCD = {
 			isa = PBXGroup;
 			children = (
 				3AEE36FC2881910E00762CCD /* iOSDeviceInfo */,
 				3A43AB822895391300890EEF /* iOSDeviceInfoTests */,
 				3AEE36FB2881910E00762CCD /* Products */,
+				3ADD94C629D445CB00AFA781 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,16 +188,12 @@
 			isa = PBXGroup;
 			children = (
 				3A2F7C78299E6D2300679555 /* iOSDeviceInfo.entitlements */,
-				3AEE36FD2881910E00762CCD /* AppDelegate.h */,
-				3AEE36FE2881910E00762CCD /* AppDelegate.m */,
-				3AEE37202881A08000762CCD /* DeviceUtil.h */,
-				3AEE37212881A08000762CCD /* DeviceUtil.m */,
-				3AEE37162881965B00762CCD /* MainViewController.h */,
-				3AEE37172881965B00762CCD /* MainViewController.m */,
-				3AEE37182881965B00762CCD /* MainViewController.xib */,
-				3AEE371B288198C600762CCD /* ShowViewController.h */,
-				3AEE371C288198C600762CCD /* ShowViewController.m */,
-				3AEE371D288198C600762CCD /* ShowViewController.xib */,
+				3ADD94C529D4457800AFA781 /* tool */,
+				3A70008D29D42583008C5099 /* extension */,
+				3ADD94BF29D441E500AFA781 /* network */,
+				3A70008B29D42549008C5099 /* hardware */,
+				3A70009D29D426C6008C5099 /* software */,
+				3A70008429D424CF008C5099 /* navigation */,
 				3AEE37092881910F00762CCD /* Assets.xcassets */,
 				3AEE370B2881910F00762CCD /* LaunchScreen.storyboard */,
 				3AEE370E2881910F00762CCD /* Info.plist */,
@@ -205,9 +291,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AEE370D2881910F00762CCD /* LaunchScreen.storyboard in Resources */,
+				3A70009229D425B6008C5099 /* HardwareViewController.xib in Resources */,
 				3AEE370A2881910F00762CCD /* Assets.xcassets in Resources */,
-				3AEE371A2881965B00762CCD /* MainViewController.xib in Resources */,
-				3AEE371F288198C600762CCD /* ShowViewController.xib in Resources */,
+				3ADD94C429D441F400AFA781 /* NetworkViewController.xib in Resources */,
+				3A7000A229D426D0008C5099 /* SoftwareViewController.xib in Resources */,
+				3A70009C29D42603008C5099 /* ExtensionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,11 +314,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A70009129D425B6008C5099 /* HardwareViewController.m in Sources */,
+				3ADD94C329D441F400AFA781 /* NetworkViewController.m in Sources */,
 				3AEE36FF2881910E00762CCD /* AppDelegate.m in Sources */,
 				3AEE37222881A08000762CCD /* DeviceUtil.m in Sources */,
 				3AEE37102881910F00762CCD /* main.m in Sources */,
-				3AEE37192881965B00762CCD /* MainViewController.m in Sources */,
-				3AEE371E288198C600762CCD /* ShowViewController.m in Sources */,
+				3A70008A29D4251F008C5099 /* MyTabBarController.m in Sources */,
+				3A70009B29D42603008C5099 /* ExtensionViewController.m in Sources */,
+				3A7000A129D426D0008C5099 /* SoftwareViewController.m in Sources */,
+				3A70008929D4251F008C5099 /* MyNavgationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,7 +506,7 @@
 				DEVELOPMENT_TEAM = 5YBWG2X244;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iOSDeviceInfo/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Device Info";
+				INFOPLIST_KEY_CFBundleDisplayName = "设备信息";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "We will use your iDFA!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -427,6 +519,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.jobs8.iOSDeviceInfo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -444,7 +539,7 @@
 				DEVELOPMENT_TEAM = 5YBWG2X244;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iOSDeviceInfo/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Device Info";
+				INFOPLIST_KEY_CFBundleDisplayName = "设备信息";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "We will use your iDFA!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -457,6 +552,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.jobs8.iOSDeviceInfo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
