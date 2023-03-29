@@ -59,6 +59,9 @@
     NSString *idfa = [DeviceUtil getIDFA];
     [_tipDict setValue:idfa forKey:@"idfa"];
     
+    NSString *deviceMode = [DeviceUtil getDeviceMode];
+    [_tipDict setValue:deviceMode forKey:@"发售版本"];
+    
     NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     NSLog(@"idfv:\n%@", idfv);
     [_tipDict setValue:idfv forKey:@"idfv"];

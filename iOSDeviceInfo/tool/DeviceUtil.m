@@ -36,21 +36,21 @@
 @implementation DeviceUtil
 
 // 获取设备型号然后手动转化为对应名称
-+ (NSString *)getDeviceName {
++ (NSString *)getDeviceMode {
     // 需要#import "sys/utsname.h"
     struct utsname systemInfo;
     int ret = uname(&systemInfo);
     printf("uname ret = %d\n", ret);
-    NSString *sysname = [NSString stringWithCString:systemInfo.sysname encoding:NSUTF8StringEncoding];
-    NSLog(@"sysname:%@",sysname);
-    NSString *nodename = [NSString stringWithCString:systemInfo. nodename encoding:NSUTF8StringEncoding];
-    NSLog(@"nodename:%@",nodename);
-    NSString *release = [NSString stringWithCString:systemInfo.release encoding:NSUTF8StringEncoding];
-    NSLog(@"release:%@",release);
-    NSString *version = [NSString stringWithCString:systemInfo.version encoding:NSUTF8StringEncoding];
-    NSLog(@"version:%@",version);
+//    NSString *sysname = [NSString stringWithCString:systemInfo.sysname encoding:NSUTF8StringEncoding];
+//    NSLog(@"sysname:%@",sysname);
+//    NSString *nodename = [NSString stringWithCString:systemInfo. nodename encoding:NSUTF8StringEncoding];
+//    NSLog(@"nodename:%@",nodename);
+//    NSString *release = [NSString stringWithCString:systemInfo.release encoding:NSUTF8StringEncoding];
+//    NSLog(@"release:%@",release);
+//    NSString *version = [NSString stringWithCString:systemInfo.version encoding:NSUTF8StringEncoding];
+//    NSLog(@"version:%@",version);
     NSString *machine = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
-    NSLog(@"machine:%@",machine);
+//    NSLog(@"machine:%@",machine);
 
     if ([machine isEqualToString:@"iPhone3,1"])    return @"iPhone 4";
     if ([machine isEqualToString:@"iPhone3,2"])    return @"iPhone 4";
