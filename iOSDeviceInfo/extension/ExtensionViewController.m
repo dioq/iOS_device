@@ -101,19 +101,22 @@
     unsigned long num = sizeof(keyMappingTable) / sizeof(struct tKeyMapping);
     for (int i = 0; i < num; i++) {
         struct tKeyMapping km = keyMappingTable[i];
-        if(km.key && km.obfuscatedKey) {
-            //            printf("%s:%s\n", km.key,km.obfuscatedKey);
+        //            printf("%s:%s\n", km.key,km.obfuscatedKey);
+        if(km.key) {
             NSDictionary *dict = [NSDictionary dictionary];
             CFDictionaryRef options = (__bridge CFDictionaryRef)dict;
             CFStringRef keyCFStr = CFStringCreateWithCString(CFAllocatorGetDefault(), km.key, kCFStringEncodingUTF8);
             CFTypeRef dev_info = MGCopyAnswer(keyCFStr, options);
             NSLog(@"%@:%@",keyCFStr,dev_info);
-            
+        }
+        if(km.obfuscatedKey) {
+            NSDictionary *dict = [NSDictionary dictionary];
+            CFDictionaryRef options = (__bridge CFDictionaryRef)dict;
             CFStringRef keyobfuscatedCFStr = CFStringCreateWithCString(CFAllocatorGetDefault(), km.obfuscatedKey, kCFStringEncodingUTF8);
             CFTypeRef dev_obfuscated_info = MGCopyAnswer(keyobfuscatedCFStr, options);
             NSLog(@"%@:%@",keyobfuscatedCFStr,dev_obfuscated_info);
-            NSLog(@"--------------- one item was end ---------------");
         }
+        NSLog(@"--------------- one item was end ---------------");
     }
 }
 
