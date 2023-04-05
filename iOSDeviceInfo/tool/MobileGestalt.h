@@ -8,7 +8,6 @@
 #ifndef LIBMOBILEGESTALT_H_
 #define LIBMOBILEGESTALT_H_
 
-#include <Foundation/Foundation.h>
 #include <sys/cdefs.h>
 
 typedef enum {
