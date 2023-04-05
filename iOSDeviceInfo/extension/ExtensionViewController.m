@@ -6,8 +6,11 @@
 //
 
 #import "ExtensionViewController.h"
+#import "DeviceInfo.h"
+#include "MobileGestalt.h"
+#include "Obfuscated.h"
 
-OBJC_EXTERN CFStringRef MGCopyAnswer(CFStringRef key) WEAK_IMPORT_ATTRIBUTE;
+//OBJC_EXTERN CFStringRef MGCopyAnswer(CFStringRef key) WEAK_IMPORT_ATTRIBUTE;
 
 @interface ExtensionViewController ()<UITextViewDelegate>
 
@@ -21,82 +24,59 @@ OBJC_EXTERN CFStringRef MGCopyAnswer(CFStringRef key) WEAK_IMPORT_ATTRIBUTE;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"私有API";
-    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
-    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     self.show.delegate = self;
     self.tipDict = [NSMutableDictionary dictionary];
-    
-    [self refresh];
 }
 
--(void)refresh {
+- (IBAction)someImportInfo:(UIButton *)sender {
     [self.view endEditing:YES];
     [self.tipDict removeAllObjects];
     
-    CFStringRef DeviceName = MGCopyAnswer(CFSTR("DeviceName"));
-    NSLog(@"DeviceName = %@", DeviceName);
-    NSString *deviceName = (__bridge_transfer NSString *)DeviceName;
-    [self.tipDict setValue:deviceName forKey:@"DeviceName"];
+    NSDictionary *dict = [NSDictionary dictionary];
+    CFDictionaryRef options = (__bridge CFDictionaryRef)dict;
     
-    CFStringRef ProductType = MGCopyAnswer(CFSTR("ProductType"));
-    NSLog(@"ProductType = %@", ProductType);
-    NSString *productType = (__bridge_transfer NSString *)ProductType;
-    [self.tipDict setValue:productType forKey:@"ProductType"];
+    setreuid(0, 0);// 获取root权限
     
-    CFStringRef ProductName = MGCopyAnswer(CFSTR("ProductName"));
-    NSLog(@"ProductName = %@", ProductName);
-    NSString *productName = (__bridge_transfer NSString *)ProductName;
-    [self.tipDict setValue:productName forKey:@"ProductName"];
-    
-    CFStringRef ChipID = MGCopyAnswer(CFSTR("ChipID"));
-    NSLog(@"ChipID = %@", ChipID);
-    NSString *chipID = (__bridge_transfer NSString *)ChipID;
-    [self.tipDict setValue:chipID forKey:@"ChipID"];
-    
-    CFStringRef ProductVersion = MGCopyAnswer(CFSTR("ProductVersion"));
-    NSLog(@"ProductVersion = %@", ProductVersion);
-    NSString *productVersion = (__bridge_transfer NSString *)ProductVersion;
-    [self.tipDict setValue:productVersion forKey:@"ProductVersion"];
-    
-    CFStringRef BuildVersion = MGCopyAnswer(CFSTR("BuildVersion"));
-    NSLog(@"BuildVersion = %@", BuildVersion);
-    NSString *buildVersion = (__bridge_transfer NSString *)BuildVersion;
-    [self.tipDict setValue:buildVersion forKey:@"BuildVersion"];
-    
-    CFStringRef SerialNumber = MGCopyAnswer(CFSTR("SerialNumber"));
+    // 序列号
+    CFStringRef SerialNumber = MGCopyAnswer(kMGSerialNumber, options);
+    if(!SerialNumber) {
+        SerialNumber = MGCopyAnswer(CFSTR("VasUgeSzVyHdB27g2XpN0g"), options);
+    }
     NSLog(@"SerialNumber = %@", SerialNumber);
     NSString *serialNumber = (__bridge_transfer NSString *)SerialNumber;
     [self.tipDict setValue:serialNumber forKey:@"SerialNumber"];
     
-    CFStringRef IMEI = MGCopyAnswer(CFSTR("QZgogo2DypSAZfkRW4dP/A"));
+    // imei
+    CFStringRef IMEI = MGCopyAnswer(kMGInternationalMobileEquipmentIdentity, options);
+    if(IMEI == NULL) {
+        IMEI = MGCopyAnswer(CFSTR("QZgogo2DypSAZfkRW4dP/A"), options);
+    }
     NSLog(@"IMEI:%@",IMEI);
     NSString *imei = (__bridge_transfer NSString *)IMEI;
     [self.tipDict setValue:imei forKey:@"IMEI"];
     
-    CFStringRef UniqueDeviceID = MGCopyAnswer(CFSTR("nFRqKto/RuQAV1P+0/qkBA"));//MGCopyAnswer(CFSTR("UniqueDeviceID"));
+    // udid
+    CFStringRef UniqueDeviceID = MGCopyAnswer(kMGUniqueDeviceID, options);
     if(UniqueDeviceID == NULL) {
-        UniqueDeviceID = MGCopyAnswer(CFSTR("UniqueDeviceID"));
+        UniqueDeviceID = MGCopyAnswer(CFSTR("nFRqKto/RuQAV1P+0/qkBA"), options);
     }
     NSLog(@"UniqueDeviceID = %@", UniqueDeviceID);
     NSString *udid = (__bridge_transfer NSString *)UniqueDeviceID;
     [self.tipDict setValue:udid forKey:@"UniqueDeviceID"];
     
-    CFTypeRef WifiAddress = MGCopyAnswer(CFSTR("WifiAddress"));
+    // wifi 地址
+    CFTypeRef WifiAddress = MGCopyAnswer(kMGWifiAddress, options);
     NSLog(@"WifiAddress = %@", WifiAddress);
     NSString *wifiAddress = (__bridge_transfer NSString *)WifiAddress;
     [self.tipDict setValue:wifiAddress forKey:@"WifiAddress"];
     
-    CFTypeRef BluetoothAddress = MGCopyAnswer(CFSTR("BluetoothAddress"));
+    // 蓝牙地址
+    CFTypeRef BluetoothAddress = MGCopyAnswer(kMGBluetoothAddress, options);
     NSLog(@"BluetoothAddress = %@", BluetoothAddress);
     NSString *bluetoothAddress = (__bridge_transfer NSString *)BluetoothAddress;
     [self.tipDict setValue:bluetoothAddress forKey:@"BluetoothAddress"];
     
-    CFTypeRef CPUArchitecture = MGCopyAnswer(CFSTR("CPUArchitecture"));
-    NSLog(@"CPUArchitecture = %@", CPUArchitecture);
-    NSString *CPUArchitecture_NSStr = (__bridge_transfer NSString *)CPUArchitecture;
-    [self.tipDict setValue:CPUArchitecture_NSStr forKey:@"CPUArchitecture"];
-    
-    CFTypeRef AirplaneMode = MGCopyAnswer(CFSTR("AirplaneMode"));
+    CFTypeRef AirplaneMode = MGCopyAnswer(kMGAirplaneMode, options);
     if (AirplaneMode == kCFBooleanTrue) {
         NSLog(@"AirplaneMode is on");
     }else{
@@ -104,9 +84,37 @@ OBJC_EXTERN CFStringRef MGCopyAnswer(CFStringRef key) WEAK_IMPORT_ATTRIBUTE;
     }
     NSString *airplaneMode = (__bridge_transfer NSString *)AirplaneMode;
     [self.tipDict setValue:airplaneMode forKey:@"AirplaneMode"];
-    //    setreuid(501, 0);// 获取root权限
+    
+    setreuid(501, 0);// 取消root权限
     
     [self showInfo];
+}
+
+- (IBAction)allknow:(UIButton *)sender {
+    NSDictionary *dict = [[DeviceInfo new] deviceInfo];
+    //    if(dict) {
+    //        NSLog(@"%@",dict);
+    //    }
+}
+
+- (IBAction)obfuscated_param:(UIButton *)sender {
+    unsigned long num = sizeof(keyMappingTable) / sizeof(struct tKeyMapping);
+    for (int i = 0; i < num; i++) {
+        struct tKeyMapping km = keyMappingTable[i];
+        if(km.key && km.obfuscatedKey) {
+            //            printf("%s:%s\n", km.key,km.obfuscatedKey);
+            NSDictionary *dict = [NSDictionary dictionary];
+            CFDictionaryRef options = (__bridge CFDictionaryRef)dict;
+            CFStringRef keyCFStr = CFStringCreateWithCString(CFAllocatorGetDefault(), km.key, kCFStringEncodingUTF8);
+            CFTypeRef dev_info = MGCopyAnswer(keyCFStr, options);
+            NSLog(@"%@:%@",keyCFStr,dev_info);
+            
+            CFStringRef keyobfuscatedCFStr = CFStringCreateWithCString(CFAllocatorGetDefault(), km.obfuscatedKey, kCFStringEncodingUTF8);
+            CFTypeRef dev_obfuscated_info = MGCopyAnswer(keyobfuscatedCFStr, options);
+            NSLog(@"%@:%@",keyobfuscatedCFStr,dev_obfuscated_info);
+            NSLog(@"--------------- one item was end ---------------");
+        }
+    }
 }
 
 -(void)showInfo {

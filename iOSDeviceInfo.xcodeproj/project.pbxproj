@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A43AB842895391300890EEF /* iOSDeviceInfoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A43AB832895391300890EEF /* iOSDeviceInfoTests.m */; };
+		3A5E78A929DDA08C00641BA5 /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E78A829DDA08C00641BA5 /* DeviceInfo.m */; };
 		3A70008929D4251F008C5099 /* MyNavgationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A70008529D4251F008C5099 /* MyNavgationController.m */; };
 		3A70008A29D4251F008C5099 /* MyTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A70008729D4251F008C5099 /* MyTabBarController.m */; };
 		3A70009129D425B6008C5099 /* HardwareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A70008F29D425B6008C5099 /* HardwareViewController.m */; };
@@ -40,6 +41,10 @@
 		3A2F7C78299E6D2300679555 /* iOSDeviceInfo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOSDeviceInfo.entitlements; sourceTree = "<group>"; };
 		3A43AB812895391300890EEF /* iOSDeviceInfoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSDeviceInfoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A43AB832895391300890EEF /* iOSDeviceInfoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSDeviceInfoTests.m; sourceTree = "<group>"; };
+		3A5E78A029DD9BEF00641BA5 /* MobileGestalt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileGestalt.h; sourceTree = "<group>"; };
+		3A5E78A729DDA08C00641BA5 /* DeviceInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceInfo.h; sourceTree = "<group>"; };
+		3A5E78A829DDA08C00641BA5 /* DeviceInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceInfo.m; sourceTree = "<group>"; };
+		3A5E78AA29DDAB7800641BA5 /* Obfuscated.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Obfuscated.h; sourceTree = "<group>"; };
 		3A70008529D4251F008C5099 /* MyNavgationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNavgationController.m; sourceTree = "<group>"; };
 		3A70008629D4251F008C5099 /* MyTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTabBarController.h; sourceTree = "<group>"; };
 		3A70008729D4251F008C5099 /* MyTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTabBarController.m; sourceTree = "<group>"; };
@@ -151,6 +156,10 @@
 		3ADD94C529D4457800AFA781 /* tool */ = {
 			isa = PBXGroup;
 			children = (
+				3A5E78A029DD9BEF00641BA5 /* MobileGestalt.h */,
+				3A5E78AA29DDAB7800641BA5 /* Obfuscated.h */,
+				3A5E78A729DDA08C00641BA5 /* DeviceInfo.h */,
+				3A5E78A829DDA08C00641BA5 /* DeviceInfo.m */,
 				3AEE37202881A08000762CCD /* DeviceUtil.h */,
 				3AEE37212881A08000762CCD /* DeviceUtil.m */,
 			);
@@ -321,6 +330,7 @@
 				3AEE37102881910F00762CCD /* main.m in Sources */,
 				3A70008A29D4251F008C5099 /* MyTabBarController.m in Sources */,
 				3A70009B29D42603008C5099 /* ExtensionViewController.m in Sources */,
+				3A5E78A929DDA08C00641BA5 /* DeviceInfo.m in Sources */,
 				3A7000A129D426D0008C5099 /* SoftwareViewController.m in Sources */,
 				3A70008929D4251F008C5099 /* MyNavgationController.m in Sources */,
 			);
