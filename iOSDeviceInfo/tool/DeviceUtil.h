@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FileUtil.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -32,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /** 获取本 App 所占磁盘空间 */
-+ (NSString *)getApplicationSize;
++ (int64_t)getApplicationSize;
 /** 获取磁盘总空间 */
 + (int64_t)getTotalDiskSpace;
 /** 获取未使用的磁盘空间 */

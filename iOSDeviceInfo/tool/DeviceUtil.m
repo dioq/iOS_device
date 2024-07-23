@@ -41,17 +41,17 @@
     struct utsname systemInfo;
     int ret = uname(&systemInfo);
     printf("uname ret = %d\n", ret);
-//    NSString *sysname = [NSString stringWithCString:systemInfo.sysname encoding:NSUTF8StringEncoding];
-//    NSLog(@"sysname:%@",sysname);
-//    NSString *nodename = [NSString stringWithCString:systemInfo. nodename encoding:NSUTF8StringEncoding];
-//    NSLog(@"nodename:%@",nodename);
-//    NSString *release = [NSString stringWithCString:systemInfo.release encoding:NSUTF8StringEncoding];
-//    NSLog(@"release:%@",release);
-//    NSString *version = [NSString stringWithCString:systemInfo.version encoding:NSUTF8StringEncoding];
-//    NSLog(@"version:%@",version);
+    //    NSString *sysname = [NSString stringWithCString:systemInfo.sysname encoding:NSUTF8StringEncoding];
+    //    NSLog(@"sysname:%@",sysname);
+    //    NSString *nodename = [NSString stringWithCString:systemInfo. nodename encoding:NSUTF8StringEncoding];
+    //    NSLog(@"nodename:%@",nodename);
+    //    NSString *release = [NSString stringWithCString:systemInfo.release encoding:NSUTF8StringEncoding];
+    //    NSLog(@"release:%@",release);
+    //    NSString *version = [NSString stringWithCString:systemInfo.version encoding:NSUTF8StringEncoding];
+    //    NSLog(@"version:%@",version);
     NSString *machine = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
-//    NSLog(@"machine:%@",machine);
-
+    NSLog(@"machine:%@",machine);
+    
     if ([machine isEqualToString:@"iPhone3,1"])    return @"iPhone 4";
     if ([machine isEqualToString:@"iPhone3,2"])    return @"iPhone 4";
     if ([machine isEqualToString:@"iPhone3,3"])    return @"iPhone 4";
@@ -90,13 +90,13 @@
     if ([machine isEqualToString:@"iPhone13,2"])   return @"iPhone 12";
     if ([machine isEqualToString:@"iPhone13,3"])   return @"iPhone 12 Pro";
     if ([machine isEqualToString:@"iPhone13,4"])   return @"iPhone 12 Pro Max";
-
+    
     if ([machine isEqualToString:@"iPod1,1"])      return @"iPod Touch 1G";
     if ([machine isEqualToString:@"iPod2,1"])      return @"iPod Touch 2G";
     if ([machine isEqualToString:@"iPod3,1"])      return @"iPod Touch 3G";
     if ([machine isEqualToString:@"iPod4,1"])      return @"iPod Touch 4G";
     if ([machine isEqualToString:@"iPod5,1"])      return @"iPod Touch (5 Gen)";
-
+    
     if ([machine isEqualToString:@"iPad1,1"])      return @"iPad";
     if ([machine isEqualToString:@"iPad1,2"])      return @"iPad 3G";
     if ([machine isEqualToString:@"iPad2,1"])      return @"iPad 2 (WiFi)";
@@ -144,15 +144,15 @@
     if ([machine isEqualToString:@"iPad8,6"])     return @"iPad Pro (12.9-inch) (3rd generation)";
     if ([machine isEqualToString:@"iPad8,7"])     return @"iPad Pro (12.9-inch) (3rd generation)";
     if ([machine isEqualToString:@"iPad8,8"])     return @"iPad Pro (12.9-inch) (3rd generation)";
-
-   if ([machine isEqualToString:@"AppleTV2,1"])    return @"Apple TV 2";
-   if ([machine isEqualToString:@"AppleTV3,1"])    return @"Apple TV 3";
-   if ([machine isEqualToString:@"AppleTV3,2"])    return @"Apple TV 3";
-   if ([machine isEqualToString:@"AppleTV5,3"])    return @"Apple TV 4";
-
+    
+    if ([machine isEqualToString:@"AppleTV2,1"])    return @"Apple TV 2";
+    if ([machine isEqualToString:@"AppleTV3,1"])    return @"Apple TV 3";
+    if ([machine isEqualToString:@"AppleTV3,2"])    return @"Apple TV 3";
+    if ([machine isEqualToString:@"AppleTV5,3"])    return @"Apple TV 4";
+    
     if ([machine isEqualToString:@"i386"])         return @"Simulator";
     if ([machine isEqualToString:@"x86_64"])       return @"Simulator";
-
+    
     return machine;
 }
 
@@ -163,90 +163,82 @@
     unsigned char *ptr;
     struct if_msghdr *ifm;
     struct sockaddr_dl *sdl;
-
+    
     mib[0] = CTL_NET;
     mib[1] = AF_ROUTE;
     mib[2] = 0;
     mib[3] = AF_LINK;
     mib[4] = NET_RT_IFLIST;
-
+    
     if ((mib[5] = if_nametoindex("en0")) == 0) {
         printf("Error: if_nametoindex error/n");
         return NULL;
     }
-
+    
     if (sysctl(mib, 6, NULL, &len, NULL, 0) < 0) {
         printf("Error: sysctl, take 1/n");
         return NULL;
     }
-
+    
     if ((buf = malloc(len)) == NULL) {
         printf("Could not allocate memory. error!/n");
         return NULL;
     }
-
+    
     if (sysctl(mib, 6, buf, &len, NULL, 0) < 0) {
         printf("Error: sysctl, take 2");
         return NULL;
     }
-
+    
     ifm = (struct if_msghdr *)buf;
     sdl = (struct sockaddr_dl *)(ifm + 1);
     ptr = (unsigned char *)LLADDR(sdl);
-
+    
     NSString *outstring = [NSString stringWithFormat:@"%02x%02x%02x%02x%02x%02x", *ptr, *(ptr+1), *(ptr+2), *(ptr+3), *(ptr+4), *(ptr+5)];
     free(buf);
-
+    
     return [outstring uppercaseString];
 }
 
 + (NSString *)getDeviceIPAddresses {
-
     int sockfd = socket(AF_INET, SOCK_DGRAM, 0);
-
     NSMutableArray *ips = [NSMutableArray array];
-
+    
     int BUFFERSIZE = 4096;
-
     struct ifconf ifc;
-
     char buffer[BUFFERSIZE], *ptr, lastname[IFNAMSIZ], *cptr;
-
     struct ifreq *ifr, ifrcopy;
-
     ifc.ifc_len = BUFFERSIZE;
     ifc.ifc_buf = buffer;
-
+    
     if (ioctl(sockfd, SIOCGIFCONF, &ifc) >= 0){
-
         for (ptr = buffer; ptr < buffer + ifc.ifc_len; ){
-
             ifr = (struct ifreq *)ptr;
             int len = sizeof(struct sockaddr);
-
+            
             if (ifr->ifr_addr.sa_len > len) {
                 len = ifr->ifr_addr.sa_len;
             }
-
+            
             ptr += sizeof(ifr->ifr_name) + len;
             if (ifr->ifr_addr.sa_family != AF_INET) continue;
             if ((cptr = (char *)strchr(ifr->ifr_name, ':')) != NULL) *cptr = 0;
             if (strncmp(lastname, ifr->ifr_name, IFNAMSIZ) == 0) continue;
-
+            
             memcpy(lastname, ifr->ifr_name, IFNAMSIZ);
             ifrcopy = *ifr;
             ioctl(sockfd, SIOCGIFFLAGS, &ifrcopy);
-
+            
             if ((ifrcopy.ifr_flags & IFF_UP) == 0) continue;
-
+            
             NSString *ip = [NSString  stringWithFormat:@"%s", inet_ntoa(((struct sockaddr_in *)&ifr->ifr_addr)->sin_addr)];
             [ips addObject:ip];
         }
     }
-
+    
     close(sockfd);
     NSString *deviceIP = @"";
-
+    
     for (int i=0; i < ips.count; i++) {
         if (ips.count > 0) {
             deviceIP = [NSString stringWithFormat:@"%@",ips.lastObject];
@@ -276,20 +268,20 @@
     mach_msg_type_number_t _numCPUInfo, _numPrevCPUInfo = 0;
     unsigned _numCPUs;
     NSLock *_cpuUsageLock;
-
+    
     int _mib[2U] = { CTL_HW, HW_NCPU };
     size_t _sizeOfNumCPUs = sizeof(_numCPUs);
     int _status = sysctl(_mib, 2U, &_numCPUs, &_sizeOfNumCPUs, NULL, 0U);
     if (_status)
         _numCPUs = 1;
-
+    
     _cpuUsageLock = [[NSLock alloc] init];
-
+    
     natural_t _numCPUsU = 0U;
     kern_return_t err = host_processor_info(mach_host_self(), PROCESSOR_CPU_LOAD_INFO, &_numCPUsU, &_cpuInfo, &_numCPUInfo);
     if (err == KERN_SUCCESS) {
         [_cpuUsageLock lock];
-
+        
         NSMutableArray *cpus = [NSMutableArray new];
         for (unsigned i = 0U; i < _numCPUs; ++i) {
             Float32 _inUse, _total;
@@ -306,7 +298,7 @@
             }
             [cpus addObject:@(_inUse / _total)];
         }
-
+        
         [_cpuUsageLock unlock];
         if (_prevCPUInfo) {
             size_t prevCpuInfoSize = sizeof(integer_t) * _numPrevCPUInfo;
@@ -379,17 +371,26 @@
 }
 
 
-
 #pragma mark - Disk
-+ (NSString *)getApplicationSize {
-    unsigned long long documentSize   =  [self _getSizeOfFolder:[self _getDocumentPath]];
-    unsigned long long librarySize   =  [self _getSizeOfFolder:[self _getLibraryPath]];
-    unsigned long long cacheSize =  [self _getSizeOfFolder:[self _getCachePath]];
++ (int64_t)getApplicationSize {
+    // 获取Documents目录路径
+    NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) firstObject];
+    unsigned long long documentSize = [[FileUtil sharedManager] folderSizeAtPath:docDir];
     
-    unsigned long long total = documentSize + librarySize + cacheSize;
+    //获取Library的目录路径
+    NSString *libDir = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory,NSUserDomainMask,YES) firstObject];
+    unsigned long long librarySize = [[FileUtil sharedManager] folderSizeAtPath:libDir];
     
-    NSString *applicationSize = [NSByteCountFormatter stringFromByteCount:total countStyle:NSByteCountFormatterCountStyleFile];
-    return applicationSize;
+    // 获取cache目录路径
+    NSString *cachesDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask,YES) firstObject];
+    unsigned long long cacheSize = [[FileUtil sharedManager] folderSizeAtPath:cachesDir];
+    
+    // 获取tmp目录路径
+    NSString *tmpDir = NSTemporaryDirectory();
+    unsigned long long tmpSize = [[FileUtil sharedManager] folderSizeAtPath:tmpDir];
+    
+    unsigned long long total = documentSize + librarySize + cacheSize + tmpSize;
+    return total;
 }
 
 + (int64_t)getTotalDiskSpace {
@@ -402,25 +403,22 @@
 }
 
 + (int64_t)getFreeDiskSpace {
-    
-//    if (@available(iOS 11.0, *)) {
-//        NSError *error = nil;
-//        NSURL *testURL = [NSURL URLWithString:NSHomeDirectory()];
-//
-//        NSDictionary *dict = [testURL resourceValuesForKeys:@[NSURLVolumeAvailableCapacityForImportantUsageKey] error:&error];
-//
-//        return (int64_t)dict[NSURLVolumeAvailableCapacityForImportantUsageKey];
-//
-//
-//    } else {
-        NSError *error = nil;
-        NSDictionary *attrs = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:&error];
-        if (error) return -1;
-        int64_t space =  [[attrs objectForKey:NSFileSystemFreeSize] longLongValue];
-        if (space < 0) space = -1;
-        return space;
-//    }
-    
+    //    if (@available(iOS 11.0, *)) {
+    //        NSError *error = nil;
+    //        NSURL *testURL = [NSURL URLWithString:NSHomeDirectory()];
+    //
+    //        NSDictionary *dict = [testURL resourceValuesForKeys:@[NSURLVolumeAvailableCapacityForImportantUsageKey] error:&error];
+    //
+    //        return (int64_t)dict[NSURLVolumeAvailableCapacityForImportantUsageKey];
+    //
+    //    } else {
+    NSError *error = nil;
+    NSDictionary *attrs = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:&error];
+    if (error) return -1;
+    int64_t space =  [[attrs objectForKey:NSFileSystemFreeSize] longLongValue];
+    if (space < 0) space = -1;
+    return space;
+    //    }
 }
 
 + (int64_t)getUsedDiskSpace {
@@ -540,39 +538,6 @@
     return @"unKnown";
 }
 
-+ (NSString *)_getDocumentPath {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *basePath = [paths firstObject];
-    return basePath;
-}
-
-+ (NSString *)_getLibraryPath {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
-    NSString *basePath = [paths firstObject];
-    return basePath;
-}
-
-+ (NSString *)_getCachePath {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *basePath = [paths firstObject];
-    return basePath;
-}
-
-+(unsigned long long)_getSizeOfFolder:(NSString *)folderPath {
-    NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:folderPath error:nil];
-    NSEnumerator *contentsEnumurator = [contents objectEnumerator];
-    
-    NSString *file;
-    unsigned long long folderSize = 0;
-    
-    while (file = [contentsEnumurator nextObject]) {
-        NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:[folderPath stringByAppendingPathComponent:file] error:nil];
-        folderSize += [[fileAttributes objectForKey:NSFileSize] intValue];
-    }
-    return folderSize;
-}
-
-
 +(NSString *)obtainOperator {
     //获取本机运营商名称
     CTTelephonyNetworkInfo *info = [[CTTelephonyNetworkInfo alloc] init];
@@ -585,7 +550,7 @@
     }else{
         mobile = [carrier carrierName];
     }
-//    mobile = [carrier carrierName];
+    //    mobile = [carrier carrierName];
     return mobile;
 }
 

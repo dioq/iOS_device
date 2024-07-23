@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2483B0072C4FC1CB006F7868 /* FileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2483B0052C4FC1CB006F7868 /* FileUtil.m */; };
 		3A43AB842895391300890EEF /* iOSDeviceInfoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A43AB832895391300890EEF /* iOSDeviceInfoTests.m */; };
 		3A5E78A929DDA08C00641BA5 /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E78A829DDA08C00641BA5 /* DeviceInfo.m */; };
 		3A70008929D4251F008C5099 /* MyNavgationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A70008529D4251F008C5099 /* MyNavgationController.m */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2483B0052C4FC1CB006F7868 /* FileUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUtil.m; sourceTree = "<group>"; };
+		2483B0062C4FC1CB006F7868 /* FileUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtil.h; sourceTree = "<group>"; };
 		3A2F7C78299E6D2300679555 /* iOSDeviceInfo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOSDeviceInfo.entitlements; sourceTree = "<group>"; };
 		3A43AB812895391300890EEF /* iOSDeviceInfoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSDeviceInfoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A43AB832895391300890EEF /* iOSDeviceInfoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSDeviceInfoTests.m; sourceTree = "<group>"; };
@@ -92,6 +95,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2483B0042C4FC1B8006F7868 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				2483B0062C4FC1CB006F7868 /* FileUtil.h */,
+				2483B0052C4FC1CB006F7868 /* FileUtil.m */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
 		3A43AB822895391300890EEF /* iOSDeviceInfoTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				3A2F7C78299E6D2300679555 /* iOSDeviceInfo.entitlements */,
+				2483B0042C4FC1B8006F7868 /* utils */,
 				3ADD94C529D4457800AFA781 /* tool */,
 				3A70008D29D42583008C5099 /* extension */,
 				3ADD94BF29D441E500AFA781 /* network */,
@@ -326,6 +339,7 @@
 				3A70009129D425B6008C5099 /* HardwareViewController.m in Sources */,
 				3ADD94C329D441F400AFA781 /* NetworkViewController.m in Sources */,
 				3AEE36FF2881910E00762CCD /* AppDelegate.m in Sources */,
+				2483B0072C4FC1CB006F7868 /* FileUtil.m in Sources */,
 				3AEE37222881A08000762CCD /* DeviceUtil.m in Sources */,
 				3AEE37102881910F00762CCD /* main.m in Sources */,
 				3A70008A29D4251F008C5099 /* MyTabBarController.m in Sources */,
@@ -522,6 +536,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -555,6 +570,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

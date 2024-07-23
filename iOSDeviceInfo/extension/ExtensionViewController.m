@@ -6,6 +6,7 @@
 //
 
 #import "ExtensionViewController.h"
+#import <mach-o/dyld.h>
 #import "DeviceInfo.h"
 #include "MobileGestalt.h"
 #include "Obfuscated.h"
@@ -91,7 +92,7 @@
 }
 
 - (IBAction)allknow:(UIButton *)sender {
-    NSDictionary *dict = [[DeviceInfo new] deviceInfo];
+    //    NSDictionary *dict = [[DeviceInfo new] deviceInfo];
     //    if(dict) {
     //        NSLog(@"%@",dict);
     //    }
@@ -117,6 +118,15 @@
             NSLog(@"%@:%@",keyobfuscatedCFStr,dev_obfuscated_info);
         }
         NSLog(@"--------------- one item was end ---------------");
+    }
+}
+
+- (IBAction)show_all_image:(UIButton *)sender {
+    printf("****************** pid:%d *******************\n", getpid());
+    for (uint32_t i = 0 ; i < _dyld_image_count(); ++i) {
+        const char *image_name = _dyld_get_image_name(i);
+        unsigned long module_base_vaddr = _dyld_get_image_vmaddr_slide(i);
+        printf("%03d %s 0x%lx\n", i, image_name, module_base_vaddr);
     }
 }
 

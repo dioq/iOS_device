@@ -7,6 +7,7 @@
 
 #import "HardwareViewController.h"
 #import "DeviceUtil.h"
+#import "FileUtil.h"
 
 @interface HardwareViewController ()<UITextViewDelegate>
 
@@ -32,21 +33,25 @@
     [self.view endEditing:YES];
     [self.tipDict removeAllObjects];
     
+    NSString *readable;
+    
     NSString *macAddress = [DeviceUtil getMacAddress];
     [self.tipDict setValue:macAddress forKey:@"macAddress"];
     
     //    NSString *cpuName = [DeviceUtil getCPUProcessor];
-    //        [self _addInfoWithKey:@"CPU 处理器名称" infoValue:cpuName];
+    //    [self _addInfoWithKey:@"CPU 处理器名称" infoValue:cpuName];
     //    [self.tipDict setValue:cpuName forKey:@"CPU 处理器名称"];
     
+    NSMutableDictionary *cpuMutDict = [NSMutableDictionary dictionary];
+    
     NSUInteger cpuCount = [DeviceUtil getCPUCount];
-    [self.tipDict setValue:[NSNumber numberWithInteger:cpuCount] forKey:@"CPU总数目"];
+    [cpuMutDict setValue:[NSNumber numberWithInteger:cpuCount] forKey:@"CPU总数目"];
     
     CGFloat cpuUsage = [DeviceUtil getCPUUsage];
-    [self.tipDict setValue:[NSNumber numberWithFloat:cpuUsage] forKey:@"CPU使用的总比例"];
+    [cpuMutDict setValue:[NSNumber numberWithFloat:cpuUsage] forKey:@"CPU使用的总比例"];
     
     NSUInteger cpuFrequency = [DeviceUtil getCPUFrequency];
-    [self.tipDict setValue:[NSNumber numberWithInteger:cpuFrequency] forKey:@"CPU 频率"];
+    [cpuMutDict setValue:[NSNumber numberWithInteger:cpuFrequency] forKey:@"CPU 频率"];
     
     NSArray *perCPUArr = [DeviceUtil getPerCPUUsage];
     NSMutableString *perCPUUsage = [NSMutableString string];
@@ -54,11 +59,14 @@
         [perCPUUsage appendFormat:@"%.2f :", per.floatValue];
     }
     [perCPUUsage deleteCharactersInRange:NSMakeRange([perCPUUsage length]-1, 1)];
-    [self.tipDict setValue:perCPUUsage forKey:@"单个CPU使用比例"];
+    [cpuMutDict setValue:perCPUUsage forKey:@"单个CPU使用比例"];
     
+    [self.tipDict setObject:cpuMutDict forKey:@"CPU"];
     
+    NSMutableDictionary *batteryMutDict = [NSMutableDictionary dictionary];
     CGFloat batteryLevel = [[UIDevice currentDevice] batteryLevel] * 100;
-    [self.tipDict setValue:[NSNumber numberWithInteger:batteryLevel] forKey:@"电池电量"];
+    readable = [NSString stringWithFormat:@"%f",batteryLevel];
+    [batteryMutDict setValue:readable forKey:@"电池电量"];
     
     UIDeviceBatteryState batteryStatu = [UIDevice currentDevice].batteryState;
     NSString *batteryStatu_str;
@@ -87,51 +95,55 @@
         }
             break;
     }
-    [self.tipDict setValue:batteryStatu_str forKey:@"电池状态"];
+    [batteryMutDict setValue:batteryStatu_str forKey:@"电池状态"];
+    [self.tipDict setObject:batteryMutDict forKey:@"电池"];
     
-    
-    NSString *applicationSize = [DeviceUtil getApplicationSize];
-    [self.tipDict setValue:applicationSize forKey:@"当前 App 所占内存空间"];
-    
+    NSMutableDictionary *diskMutDict = [NSMutableDictionary dictionary];
     int64_t totalDisk = [DeviceUtil getTotalDiskSpace];
-    NSString *totalDiskInfo = [NSString stringWithFormat:@"== %.2f MB == %.2f GB", totalDisk/1024/1024.0, totalDisk/1024/1024/1024.0];
-    [self.tipDict setValue:totalDiskInfo forKey:@"磁盘总空间"];
-    
+    readable = [[FileUtil sharedManager] convertSzie:totalDisk];
+    [diskMutDict setValue:readable forKey:@"磁盘总空间"];
     int64_t usedDisk = [DeviceUtil getUsedDiskSpace];
-    NSString *usedDiskInfo = [NSString stringWithFormat:@" == %.2f MB == %.2f GB", usedDisk/1024/1024.0, usedDisk/1024/1024/1024.0];
-    [self.tipDict setValue:usedDiskInfo forKey:@"磁盘已使用空间间"];
-    
+    readable = [[FileUtil sharedManager] convertSzie:usedDisk];
+    [diskMutDict setValue:readable forKey:@"磁盘已使用空间"];
     int64_t freeDisk = [DeviceUtil getFreeDiskSpace];
-    NSString *freeDiskInfo = [NSString stringWithFormat:@" %.2f MB == %.2f GB", freeDisk/1024/1024.0, freeDisk/1024/1024/1024.0];
-    [self.tipDict setValue:freeDiskInfo forKey:@"磁盘空闲空间"];
+    readable = [[FileUtil sharedManager] convertSzie:freeDisk];
+    [diskMutDict setValue:readable forKey:@"磁盘空闲空间"];
+    unsigned long long applicationSize = [DeviceUtil getApplicationSize];
+    readable = [[FileUtil sharedManager] convertSzie:applicationSize];
+    [diskMutDict setValue:readable forKey:@"本 App 所占磁盘空间"];
+    [self.tipDict setObject:diskMutDict forKey:@"磁盘"];
+    
+    NSMutableDictionary *memoryMutDict = [NSMutableDictionary dictionary];
     
     int64_t totalMemory = [DeviceUtil getTotalMemory];
-    NSString *totalMemoryInfo = [NSString stringWithFormat:@" %.2f MB == %.2f GB", totalMemory/1024/1024.0, totalMemory/1024/1024/1024.0];
-    [self.tipDict setValue:totalMemoryInfo forKey:@"系统总内存空间"];
-    
-    int64_t freeMemory = [DeviceUtil getFreeMemory];
-    NSString *freeMemoryInfo = [NSString stringWithFormat:@" %.2f MB == %.2f GB", freeMemory/1024/1024.0, freeMemory/1024/1024/1024.0];
-    [self.tipDict setValue:freeMemoryInfo forKey:@"空闲的内存空间"];
-    
-    int64_t usedMemory = [DeviceUtil getFreeDiskSpace];
-    NSString *usedMemoryInfo = [NSString stringWithFormat:@" %.2f MB == %.2f GB", usedMemory/1024/1024.0, usedMemory/1024/1024/1024.0];
-    [self.tipDict setValue:usedMemoryInfo forKey:@"已使用的内存空间"];
+    readable = [[FileUtil sharedManager] convertSzie:totalMemory];
+    [memoryMutDict setValue:readable forKey:@"系统总内存空间"];
     
     int64_t activeMemory = [DeviceUtil getActiveMemory];
-    NSString *activeMemoryInfo = [NSString stringWithFormat:@"正在使用或者很短时间内被使用过 %.2f MB == %.2f GB", activeMemory/1024/1024.0, activeMemory/1024/1024/1024.0];
-    [self.tipDict setValue:activeMemoryInfo forKey:@"活跃的内存"];
+    readable = [[FileUtil sharedManager] convertSzie:activeMemory];
+    [memoryMutDict setValue:readable forKey:@"活跃的内存"];
     
-    int64_t inActiveMemory = [DeviceUtil getInActiveMemory];
-    NSString *inActiveMemoryInfo = [NSString stringWithFormat:@"但是目前处于不活跃状态的内存 %.2f MB == %.2f GB", inActiveMemory/1024/1024.0, inActiveMemory/1024/1024/1024.0];
-    [self.tipDict setValue:inActiveMemoryInfo forKey:@"最近使用过"];
+    int64_t InActiveMemory = [DeviceUtil getInActiveMemory];
+    readable = [[FileUtil sharedManager] convertSzie:InActiveMemory];
+    [memoryMutDict setValue:readable forKey:@"不活跃的内存空间"];
+    
+    int64_t freeMemory = [DeviceUtil getFreeMemory];
+    readable = [[FileUtil sharedManager] convertSzie:freeMemory];
+    [memoryMutDict setValue:readable forKey:@"空闲的内存空间"];
+    
+    int64_t usedMemory = [DeviceUtil getUsedMemory];
+    readable = [[FileUtil sharedManager] convertSzie:usedMemory];
+    [memoryMutDict setValue:readable forKey:@"已使用的内存空间"];
     
     int64_t wiredMemory = [DeviceUtil getWiredMemory];
-    NSString *wiredMemoryInfo = [NSString stringWithFormat:@"framework、用户级别的应用无法分配 %.2f MB == %.2f GB", wiredMemory/1024/1024.0, wiredMemory/1024/1024/1024.0];
-    [self.tipDict setValue:wiredMemoryInfo forKey:@"用来存放内核和数据结构的内存"];
+    readable = [[FileUtil sharedManager] convertSzie:wiredMemory];
+    [memoryMutDict setValue:readable forKey:@"用来存放内核和数据结构的内存"];//用户级别的应用无法分配
     
     int64_t purgableMemory = [DeviceUtil getPurgableMemory];
-    NSString *purgableMemoryInfo = [NSString stringWithFormat:@"大对象存放所需的大块内存空间 %.2f MB == %.2f GB", purgableMemory/1024/1024.0, purgableMemory/1024/1024/1024.0];
-    [self.tipDict setValue:purgableMemoryInfo forKey:@"可释放的内存空间(内存吃紧自动释放)"];
+    readable = [[FileUtil sharedManager] convertSzie:purgableMemory];
+    [memoryMutDict setValue:readable forKey:@"可释放的内存空间(内存吃紧自动释放)"];
+    
+    [self.tipDict setObject:memoryMutDict forKey:@"内存"];
     
     [self showInfo];
 }
